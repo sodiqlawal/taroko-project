@@ -1,0 +1,134 @@
+.button {
+  padding: 4px 5px;
+  min-width: 120px;
+  cursor: pointer;
+  background-color: var(--white);
+  border-radius: 2px;
+  position: relative;
+  border-radius: 4px;
+  transition: all 0.4s ease;
+
+  &.full {
+    width: 100%;
+  }
+
+  &.medium {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  &.danger {
+    background-color: var(--danger);
+    border: transparent;
+    color: var(--white);
+  }
+
+  &.primary {
+    background-color: var(--primary);
+    border: transparent;
+    color: var(--white);
+  }
+
+  &.simple {
+    &:hover {
+      background-color: var(--dark);
+      border: 2px solid var(--dark);
+      color: var(--white);
+    }
+  }
+
+
+  // growth animation
+  &.growth {
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+
+    &:hover {
+      background: transparent;
+      color: var(--dark);
+      border: 1px solid transparent;
+
+      &::before,
+      &::after {
+        -webkit-transition: all 0.7s ease;
+        transition: all 0.7s ease;
+        width: 100%;
+      }
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0px;
+      width: 0px;
+      height: 3px;
+      background: var(--dark);
+      transition: all 0.4s ease;
+    }
+
+    &::after {
+      top: inherit;
+      left: inherit;
+      bottom: 0;
+      right: 0;
+    }
+
+    &.danger {
+      &::before,
+      &::after {
+        background: var(--danger);
+      }
+
+      &:hover {
+        color: var(--danger);
+      }
+    }
+
+    &.primary {
+      &::before,
+      &::after {
+        background: var(--primary);
+      }
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+  
+}
+
+.input_cover {
+  width: 100%;
+  position: relative;
+
+  .input {
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    font-size: 16px;
+    padding: 10px 14px;
+    height: 44px;
+    font-weight: 300;
+    border: 1px solid var(--gray);
+    background-color: var(--white);
+    border-radius: 8px;
+    outline: 0;
+  }
+
+  .input::placeholder {
+    color: var(--gray);
+  }
+
+  .text_error {
+    color: var(--danger);
+    font-size: 14px;
+    font-weight: 300;
+    text-align: start;
+  }
+
+  .input_error {
+    border: 1px solid var(--danger);
+  }
+}
