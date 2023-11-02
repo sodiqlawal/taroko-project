@@ -24,11 +24,12 @@ const Button: FC<
                 [styles.primary]: props.isPrimary,
                 [styles.medium]: props.isMedium,
                 [styles.growth]: props.growth,
-                [styles.simple]: props.simple
+                [styles.simple]: props.simple,
+                [styles.disabled]: props.disabled
             })}
             {...props}
         >
-            <span>{content}</span>
+            <span>{loading ? "loading..." : content}</span>
         </button>
     );
 };

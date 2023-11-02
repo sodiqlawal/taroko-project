@@ -1,9 +1,44 @@
+"use client"
 import ContactForm from "@/components/contact-form/ContactForm";
+import { TOAST_OPTION } from "@/constant";
+import { useToast } from "@/hooks/useToast";
+import { getContact } from "@/lib/api/contact";
+import { Contact } from "@/models/contact";
+import { isAxiosError } from "axios";
+import { FC, useEffect, useState } from "react";
 
-const EditContact = () => {
+interface PageProps {
+    params: {
+        id: string;
+    };
+}
+
+const EditContact: FC<PageProps> = ({ params }) => {
+    const { toast } = useToast();
+    const [contact, setContact] = useState<Contact | null>(null);
+
+    const fetchContact = async () => {
+        try {
+            const result = await getContact(params.id);
+            setContact(result!);
+
+        } catch (error) {
+            let message = isAxiosError(error) ? (error.response?.data?.message || "") : error
+            toast({
+                type: TOAST_OPTION.ERROR,
+                message
+            })
+
+        }
+    }
+
+    useEffect(() => {
+        fetchContact()
+    }, []);
+
     return (
         <div>
-            <ContactForm isEditing />
+            <ContactForm isEditing payload={contact!} />
         </div>
     )
 }
