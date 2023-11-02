@@ -1,5 +1,5 @@
-import ContactList from '@/components/contact-list'
-import styles from './page.module.scss'
+import ContactList from "@/components/contact-list"
+import styles from "./page.module.scss"
 
 export default function Home() {
   return (
