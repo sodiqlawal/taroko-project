@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Form, Formik } from "formik";
+import { Form, Formik, FormikHelpers } from "formik";
 import styles from "./contact-form.module.scss";
 import { FC, useEffect, useState } from "react";
 import { MyField } from "../miscellaneous/form/Input";
@@ -10,31 +10,32 @@ import Button from "../miscellaneous/form/Button";
 import { HiArrowNarrowLeft } from "react-icons/hi";
 import { TOAST_OPTION } from "@/constant";
 import { useToast } from "@/hooks/useToast";
+import { isAxiosError } from "axios";
+import { addContact, updateContact } from "@/lib/api/contact";
+import { Contact } from "@/models/contact";
 
 export const validationSchema = yup.object({
-    firstName: yup.string().required("Enter your first name"),
-    lastName: yup.string().required("Enter your last name"),
+    first_name: yup.string().required("Enter your first name"),
+    last_name: yup.string().required("Enter your last name"),
     job: yup.string().required("Enter your job title"),
     description: yup.string().required("Enter your job description"),
 });
 
-
-
 type Form = {
-    firstName: string;
-    lastName: string;
+    first_name: string;
+    last_name: string;
     job: string;
     description: string;
 };
 
-const ContactForm: FC<{ payload?: Form, isEditing?: boolean }> = ({ payload, isEditing }) => {
+const ContactForm: FC<{ payload?: Contact, isEditing?: boolean }> = ({ payload, isEditing }) => {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
-    const {toast} = useToast();
+    const { toast } = useToast();
 
     const [values, setValues] = useState<Form>({
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         job: "",
         description: "",
     });
@@ -42,8 +43,8 @@ const ContactForm: FC<{ payload?: Form, isEditing?: boolean }> = ({ payload, isE
     useEffect(() => {
         if (!!payload) {
             setValues({
-                firstName: payload.firstName,
-                lastName: payload.lastName,
+                first_name: payload.first_name,
+                last_name: payload.last_name,
                 job: payload.job,
                 description: payload.description,
             });
@@ -51,11 +52,37 @@ const ContactForm: FC<{ payload?: Form, isEditing?: boolean }> = ({ payload, isE
     }, [payload]);
 
 
-    const submit = () => { 
-        toast({
-            type: TOAST_OPTION.SUCCESS,
-            message: "Hello",
-        });
+    const submit = async (value: Form, helpers:FormikHelpers<Form>) => {
+        setLoading(true)
+        try {
+            if (isEditing) {
+                await updateContact(payload?.id || "", value);
+            } else {
+                await addContact(value);
+            }
+
+            
+            toast({
+                type: TOAST_OPTION.SUCCESS,
+                message: `Contact ${isEditing ? "updated" : "added"} successfully`,
+            });
+            
+            helpers.resetForm();
+            
+            setLoading(false);
+            
+            router.push("/");
+            
+
+        } catch (error) {
+            let message = isAxiosError(error) ? error.response?.data?.message || "" : error
+            toast({
+                type: TOAST_OPTION.ERROR,
+                message
+            })
+
+            setLoading(false);
+        } 
     };
 
     return (
@@ -81,17 +108,17 @@ const ContactForm: FC<{ payload?: Form, isEditing?: boolean }> = ({ payload, isE
                         <Form className={styles.full}>
                             <div>
                                 <MyField
-                                    name="firstName"
+                                    name="first_name"
                                     placeholder="John"
                                     label="First Name"
-                                    id="firstName"
+                                    id="first_name"
                                     className={styles.field}
                                 />
                                 <MyField
-                                    name="lastName"
+                                    name="last_name"
                                     placeholder="Doe"
                                     label="Last Name"
-                                    id="lastName"
+                                    id="last_name"
                                     className={styles.field}
                                 />
                                 <MyField
@@ -114,6 +141,7 @@ const ContactForm: FC<{ payload?: Form, isEditing?: boolean }> = ({ payload, isE
                                     type="submit"
                                     className={styles.button}
                                     loading={loading}
+                                    disabled={loading}
                                     isFull
                                 />
                             </div>

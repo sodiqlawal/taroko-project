@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { ErrorMessage, Field, useField } from "formik";
 import styles from "./form.module.scss";
 
-type MyFieldProps = React.InputHTMLAttributes<any> & {
+type MyFieldProps = React.InputHTMLAttributes<unknown> & {
     name: string;
     is_error?: boolean;
     label?: string;
@@ -25,7 +25,7 @@ export const MyErrorMessage: React.FC<{ name: string; error_msg?: string }> = (
 
 
 export const MyField = ({ className, ...props }: MyFieldProps) => {
-    const [input, meta] = useField<any>(props.name);
+    const [input, meta] = useField<unknown>(props.name);
 
     const isError = (meta.error && meta.touched) || props.is_error;
 
