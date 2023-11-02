@@ -24,7 +24,7 @@ const ContactCard = () => {
                 </div>
 
                 <div className={styles.cta}>
-                    <Link href={`/1/edit-contact`}>
+                    <Link href={"/1/edit-contact"}>
                         <Button content="Edit" className={styles.button} simple />
                     </Link>
                     <Button content="Delete" onClick={deleteModal.open} />
