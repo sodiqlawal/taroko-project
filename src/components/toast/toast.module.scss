@@ -1,0 +1,135 @@
+.toast_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10000;
+
+  .toast_cell {
+    display: flex;
+    justify-content: flex-end;
+    -webkit-animation: slide 0.5s forwards;
+    animation: 0.5s slide forwards;
+    width: 100%;
+  }
+
+  .add-margin {
+    margin-top: 20px;
+  }
+
+  .white_fill {
+    fill: var(--white);
+  }
+
+  .toast {
+    text-align: left;
+    padding: 21px 0;
+    background-color: var(--white);
+    border-radius: 4px;
+    max-width: 500px;
+    width: 100%;
+    top: 0px;
+    position: relative;
+    box-shadow: 1px 7px 14px -5px rgba(var(--dark-100));
+  }
+
+  .toast:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  .toast_icon {
+    position: absolute;
+    top: 50%;
+    left: 22px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    padding: 7px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      color: var(--white);
+    }
+  }
+
+  .toast_type {
+    color: var(--gray-400);
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
+  .toast_message {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+    fill: var(--gray-300);
+  }
+
+  .toast_content {
+    padding-left: 70px;
+    padding-right: 60px;
+  }
+
+  .toast_close {
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    width: 14px;
+    cursor: pointer;
+    height: 14px;
+    fill: var(--gray-300);
+    transform: translateY(-50%);
+  }
+
+  .toast_green .toast_icon {
+    background-color: var(--green);
+  }
+
+  .toast_green:before {
+    background-color: var(--green);
+  }
+
+  .toast_error .toast_icon {
+    background-color: var(--danger);
+  }
+
+  .toast_error:before {
+    background-color: var(--danger);
+  }
+
+  .done {
+    width: 1rem;
+    height: 1rem;
+    color: var(--white);
+  }
+}
+
+@-webkit-keyframes slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}

@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 2px solid;
+
+  .contact_list {
+    display: block;
+  }
+
+  svg {
+    display: none;
+  }
+
+}
+
+// media query
+@media (max-width: 768px) {
+  .container {
+    .contact_list {
+      display: none;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+}
