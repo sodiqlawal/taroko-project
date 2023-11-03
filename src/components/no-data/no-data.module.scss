@@ -1,0 +1,10 @@
+.no_data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+
+  h2 {
+    color: var(--gray);
+  }
+}

@@ -1,0 +1,12 @@
+Answer: Code 2
+
+Reason: 
+Code1 will also work but that's a bad practise that can cause expensive issues in other scenarios, 
+Code1 will work in this situation because we are logging the event target innerHTML. Even though the event bubbles up to the wrapper event handler, 
+as long as the user clicks the child(animal) element, the event will have the child element as target.
+
+But if we are logging currentTarget innerHTML, code1 will give us a different result from expectation, 
+because currentTarget represents the element where the actual event handler is running.
+
+
+P.S:- Both code is missing the `key` attribute

@@ -1,0 +1,28 @@
+.container {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    padding-right: 7px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    &.active {
+        background-color: var(--dark);
+        border-radius: 5px;
+
+        p, svg {
+            color: var(--white);
+        }
+    }
+}
+
+
+// media query
+@media(max-width:768px) {
+    .container {
+        top: 20px;
+        right: 35px;
+    }
+}

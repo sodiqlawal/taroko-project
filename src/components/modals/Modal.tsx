@@ -13,22 +13,25 @@ const Modal: FC<
 > = ({ controller, children, title, className }) => {
     if (!controller.isOpen) return null;
     return (
-        <div className={styles.modal}>
+        <div className={styles.modal} data-testid="modal">
             <div
                 className={classNames(
                     styles.paper,
                     className
                 )}
             >
-                <div
-                    className={styles.close}
-                    onClick={controller.close}
-                >
-                    <GrClose className="text-gray-600" />
+
+                <div className={styles.header}>
+                    <h3>{title}</h3>
+                    <div
+                        className={styles.close}
+                        onClick={controller.close}
+                    >
+                        <GrClose className="text-gray-600" size={20} />
+                    </div>
+
                 </div>
 
-                <h2>{title}</h2>
-                
                 <div className={styles.children}>{children}</div>
             </div>
         </div>

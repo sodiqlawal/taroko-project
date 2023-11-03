@@ -2,8 +2,16 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(150px, 1fr));
   grid-gap: 30px;
+
+
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
 .card {
   border: 2px solid var(--dark);
   padding: 20px;

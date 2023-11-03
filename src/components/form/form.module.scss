@@ -23,6 +23,14 @@
     color: var(--white);
   }
 
+  &.disabled {
+    background-color: var(--gray);
+    border: transparent;
+    color: var(--white);
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
   &.primary {
     background-color: var(--primary);
     border: transparent;

@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TAROKO PROJECT
 
-## Getting Started
+Hi there 👋. This is source material for getting contact lists, creating a new contact, update existing contact and delete preferred contact . Thank you very much for visiting this repository.
 
-First, run the development server:
+## System requirements
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- [Git](https://git-scm.com/)
+- [Node.js ](https://nodejs.org/)
+- [Yarn](https://yarn.org)
+
+You should be able to verify all these are installed correctly using:
+
+```
+node --version
+yarn --version
+git --version
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup
+Please go through the following steps to run this project locally:
+-  Clone this repository with the command `git clone https://github.com/sodiqlawal/taroko-project.git`
+-  Install all the dependencies using `npm install` or  `yarn install`. 
+-  Start the project in development mode using `npm run dev` or `yarn run dev` .
+-  Fork the backend repository `https://github.com/resumecompanion/taroko_server.git`, and start the server
+-  Create `.env` file and check `.env.sample` file, for how the env file is being structured and fill in the variables.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Naming conventions
+* folders and `.ts and .scss` files follow the `kebab` convention
+* hooks follow the `camelCase` convention
+* components that return a `JSX.Element` like `.tsx` files follow the `PascalCase` convention
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+### `npm run test`
+Launches the test runner in the interactive watch mode.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## `React Quiz`
+- Check `quiz.txt`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Technologies used 🛠️
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Typescript](https://www.typescriptlang.org/) - for setting an interface for the app
+- [Sass](https://sass-lang.com/documentation) - CSS extension language
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) - for testing
+- [Eslint](https://eslint.org/) - for setting code style rules
+- [Prettier](https://prettier.io/) - for formatting code
+- [Husky](https://typicode.github.io/husky/) - for validating code before commit

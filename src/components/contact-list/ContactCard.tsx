@@ -1,14 +1,50 @@
 "use client"
+import { TOAST_OPTION } from "@/constant";
 import useModal from "@/hooks/useModal";
+import { useToast } from "@/hooks/useToast";
+import { deleteContact } from "@/lib/api/contact";
+import { Contact } from "@/types/contact";
+import { isAxiosError } from "axios";
 import Link from "next/link";
+import { FC, useState } from "react";
 import { FaUser } from "react-icons/fa"
-import Button from "../miscellaneous/form/Button";
-import Modal from "../modals";
+import Button from "../form/Button";
+import Modal from "../modals/Modal";
 import styles from "./contact-list.module.scss";
 
-const ContactCard = () => {
+const ContactCard: FC<{ contact: Contact; refetch:() => void }> = ({ contact, refetch }) => {
     const deleteModal = useModal();
+    const {toast} = useToast();
+    const [loading, setLoading] = useState(false);
 
+    const deleteAction = async () => {
+        setLoading(true);
+        try {
+            await deleteContact(contact.id || "");
+
+            toast({
+                type: TOAST_OPTION.SUCCESS,
+                message: "Contact deleted successfully"
+            })
+
+            // refetch all contacts 
+            refetch();
+
+            setLoading(false);
+
+            deleteModal.close();
+
+        } catch (error) {
+            let message = isAxiosError(error) ? error.response?.data?.message || "" : error
+            toast({
+                type: TOAST_OPTION.ERROR,
+                message
+            })
+            setLoading(false)
+        }
+    }
+
+    if (!contact) return null;
     return (
         <div className={styles.card}>
 
@@ -16,15 +52,15 @@ const ContactCard = () => {
                 <div>
                     <div className={styles.user}>
                         <FaUser size={30} />
-                        <p>John Doe</p>
+                        <p>{`${contact.first_name} ${contact.last_name}`}</p>
                     </div>
 
-                    <p className={styles.job}><b>Job:</b> Designer</p>
+                    <p className={styles.job}><b>Job:</b> {contact.job}</p>
 
                 </div>
 
                 <div className={styles.cta}>
-                    <Link href={`/1/edit-contact`}>
+                    <Link href={`/contacts/${contact.id}/edit`}>
                         <Button content="Edit" className={styles.button} simple />
                     </Link>
                     <Button content="Delete" onClick={deleteModal.open} />
@@ -33,13 +69,14 @@ const ContactCard = () => {
             </div>
 
 
-            <p className={styles.desc}><b>Description:</b> Talented with CSS animations</p>
+            <p className={styles.desc}><b>Description:</b> {contact.description}</p>
 
+            {/* this modal is triggered when we click on delete card button */}
             <Modal controller={deleteModal} title="Delete Card">
                 <p className={styles.delete_desc}>Are you sure you want to delete this card ?</p>
                 <div className={styles.button_cover}>
                     <Button content="No" isMedium isDanger onClick={deleteModal.close} growth />
-                    <Button content="Yes" isMedium isPrimary growth />
+                    <Button content="Yes" isMedium isPrimary growth onClick={deleteAction} loading={loading} disabled={loading} />
                 </div>
             </Modal>
 

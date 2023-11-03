@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
-import Button from "../miscellaneous/form/Button";
-import { RxHamburgerMenu } from "react-icons/Rx";
+import Button from "../form/Button";
+import { AiOutlineMenu } from "react-icons/ai";
 import styles from "./header.module.scss";
-import SideBar from "../sidebar";
+import SideBar from "../sidebar/SideBar";
 import { useState } from "react";
 
 const Header = () => {
@@ -20,10 +20,10 @@ const Header = () => {
             </Link>
 
             <div onClick={toggle} className={styles.menu}>
-                <RxHamburgerMenu size={25} />
+                <AiOutlineMenu size={25} />
             </div>
 
-            <Link href="/add-contact">
+            <Link href="/contacts/add">
                 <Button content="Add Contact" simple />
             </Link>
 

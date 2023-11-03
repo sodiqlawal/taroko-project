@@ -1,3 +1,21 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "extends": "next/core-web-vitals",
+  "plugins": ["prettier", "testing-library"],
+  "rules": {
+    "quotes": [
+      "error",
+      "double",
+      {
+        "avoidEscape": true
+      }
+    ]
+  },
+  "overrides": [
+    // Only uses Testing Library lint rules in test files
+    {
+      "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ]
 }
