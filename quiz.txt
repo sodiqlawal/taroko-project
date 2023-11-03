@@ -6,7 +6,7 @@ Code1 will work in this situation because we are logging the event target innerH
 as long as the user clicks the child(animal) element, the event will have the child element as target.
 
 But if we are logging currentTarget innerHTML, code1 will give us a different result from expectation, 
-because currentTarget represents the element where the actual event handler is running, thus giving us a wrong answer.
+because currentTarget represents the element where the actual event handler is running.
 
 
 P.S:- Both code is missing the `key` attribute
