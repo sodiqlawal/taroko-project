@@ -33,6 +33,6 @@ Launches the test runner in the interactive watch mode.\
 - [Typescript](https://www.typescriptlang.org/) - for setting an interface for the app
 - [Sass](https://sass-lang.com/documentation) - CSS extension language
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) - for testing
-- [Eslint](https://eslint.org/) - for setting coding style rules
+- [Eslint](https://eslint.org/) - for setting code style rules
 - [Prettier](https://prettier.io/) - for formatting code
 - [Husky](https://typicode.github.io/husky/) - for validating code before commit
