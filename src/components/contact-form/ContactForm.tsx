@@ -4,15 +4,15 @@ import { useRouter } from "next/navigation";
 import { Form, Formik, FormikHelpers } from "formik";
 import styles from "./contact-form.module.scss";
 import { FC, useEffect, useState } from "react";
-import { MyField } from "../miscellaneous/form/MyField";
+import { MyField } from "../form/Form";
 import * as yup from "yup";
-import Button from "../miscellaneous/form/Button";
+import Button from "../form/Button";
 import { HiArrowNarrowLeft } from "react-icons/hi";
 import { TOAST_OPTION } from "@/constant";
 import { useToast } from "@/hooks/useToast";
 import { isAxiosError } from "axios";
 import { addContact, updateContact } from "@/lib/api/contact";
-import { Contact } from "@/models/contact";
+import { Contact } from "@/types/contact";
 
 export const validationSchema = yup.object({
     first_name: yup.string().required("Enter your first name"),

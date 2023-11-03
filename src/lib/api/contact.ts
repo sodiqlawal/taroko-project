@@ -1,4 +1,4 @@
-import { Contact } from "@/models/contact";
+import { Contact } from "@/types/contact";
 import { client } from "./client";
 
 async function getContacts(): Promise<Contact[]> {

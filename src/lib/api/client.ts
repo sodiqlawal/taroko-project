@@ -1,6 +1,6 @@
 import { env } from "@/config";
 import axios, { AxiosRequestConfig } from "axios";
-import { ApiHeader, OptionsArgs } from "@/models/client";
+import { ApiHeader, OptionsArgs } from "@/types/client";
 
 const { baseUrl } = env;
 

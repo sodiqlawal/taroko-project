@@ -2,7 +2,7 @@
 import { TOAST_OPTION } from "@/constant";
 import { useToast } from "@/hooks/useToast";
 import { getContacts } from "@/lib/api/contact";
-import { Contact } from "@/models/contact";
+import { Contact } from "@/types/contact";
 import { isAxiosError } from "axios";
 import type { FC } from "react";
 import { useEffect, useState, useCallback } from "react";
@@ -64,7 +64,7 @@ const Contacts: FC<{ sortOrder: Order }> = ({ sortOrder }) => {
   }, [sortOrder]);
 
   if (!sortedOrders.length && !loading) return <NoData />;
-  if (!sortedOrders.length && loading) return null;
+    if (!sortedOrders.length && loading) return <div className={styles.loading}><h2>Loading...</h2></div>;
   return (
     <div className={styles.list}>
       {sortedOrders.map((contact: Contact, i) => (

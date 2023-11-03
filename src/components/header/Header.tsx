@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Button from "../miscellaneous/form/Button";
+import Button from "../form/Button";
 import { AiOutlineMenu } from "react-icons/ai";
 import styles from "./header.module.scss";
 import SideBar from "../sidebar/SideBar";
@@ -23,7 +23,7 @@ const Header = () => {
                 <AiOutlineMenu size={25} />
             </div>
 
-            <Link href="/add-contact">
+            <Link href="/contacts/add">
                 <Button content="Add Contact" simple />
             </Link>
 

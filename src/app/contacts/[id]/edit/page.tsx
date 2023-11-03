@@ -3,7 +3,7 @@ import ContactForm from "@/components/contact-form/ContactForm";
 import { TOAST_OPTION } from "@/constant";
 import { useToast } from "@/hooks/useToast";
 import { getContact } from "@/lib/api/contact";
-import { Contact } from "@/models/contact";
+import { Contact } from "@/types/contact";
 import { isAxiosError } from "axios";
 import { FC, useCallback, useEffect, useState } from "react";
 
@@ -36,11 +36,8 @@ const EditContact: FC<PageProps> = ({ params }) => {
         fetchContact()
     }, [fetchContact]);
 
-    return (
-        <div>
-            <ContactForm isEditing payload={contact!} />
-        </div>
-    )
+    return <ContactForm isEditing payload={contact!} />
+        
 }
 
 export default EditContact;

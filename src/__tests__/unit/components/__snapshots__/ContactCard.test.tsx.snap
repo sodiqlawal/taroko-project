@@ -42,7 +42,7 @@ exports[`The <ContactCard /> component should match snapshot 1`] = `
         class="cta"
       >
         <a
-          href="/undefined/edit-contact"
+          href="/contacts/undefined/edit"
         >
           <button
             class="button button simple"

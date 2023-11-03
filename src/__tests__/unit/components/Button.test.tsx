@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import Button from "@/components/miscellaneous/form/Button";
+import Button from "@/components/form/Button";
 
 const defaultProps: {
     content: string;
@@ -18,7 +18,7 @@ const defaultProps: {
 const setupButton = (props = defaultProps) => render(<Button {...props} />);
 
 describe("The <SubmitButton /> component", () => {
-    
+
     it("should match snapshot", () => {
         const { asFragment } = setupButton();
 

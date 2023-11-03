@@ -21,12 +21,21 @@ Please go through the following steps to run this project locally:
 -  Clone this repository with the command `git clone https://github.com/sodiqlawal/taroko-project.git`
 -  Install all the dependencies using `npm install` or  `yarn install`. 
 -  Start the project in development mode using `npm run dev` or `yarn run dev` .
--  Fork the backend repository, and start the server
+-  Fork the backend repository `https://github.com/resumecompanion/taroko_server.git`, and start the server
 -  Create `.env` file and check `.env.sample` file, for how the env file is being structured and fill in the variables.
 
+## Naming conventions
+* folders and `.ts and .scss` files follow the `kebab` convention
+* hooks follow the `camelCase` convention
+* components that return a `JSX.Element` like `.tsx` files follow the `PascalCase` convention
 
-## `npm run test`
+
+### `npm run test`
 Launches the test runner in the interactive watch mode.
+
+
+## `React Quiz`
+- Check `quiz.txt`
 
 
 ## Technologies used 🛠️

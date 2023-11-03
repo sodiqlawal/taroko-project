@@ -3,12 +3,12 @@ import { TOAST_OPTION } from "@/constant";
 import useModal from "@/hooks/useModal";
 import { useToast } from "@/hooks/useToast";
 import { deleteContact } from "@/lib/api/contact";
-import { Contact } from "@/models/contact";
+import { Contact } from "@/types/contact";
 import { isAxiosError } from "axios";
 import Link from "next/link";
 import { FC, useState } from "react";
 import { FaUser } from "react-icons/fa"
-import Button from "../miscellaneous/form/Button";
+import Button from "../form/Button";
 import Modal from "../modals/Modal";
 import styles from "./contact-list.module.scss";
 
@@ -60,7 +60,7 @@ const ContactCard: FC<{ contact: Contact; refetch:() => void }> = ({ contact, re
                 </div>
 
                 <div className={styles.cta}>
-                    <Link href={`/${contact.id}/edit-contact`}>
+                    <Link href={`/contacts/${contact.id}/edit`}>
                         <Button content="Edit" className={styles.button} simple />
                     </Link>
                     <Button content="Delete" onClick={deleteModal.open} />
