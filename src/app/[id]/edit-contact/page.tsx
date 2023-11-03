@@ -30,7 +30,7 @@ const EditContact: FC<PageProps> = ({ params }) => {
             })
 
         }
-    }, [])
+    }, [params.id])
 
     useEffect(() => {
         fetchContact()
