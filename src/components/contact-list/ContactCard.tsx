@@ -9,7 +9,7 @@ import Link from "next/link";
 import { FC, useState } from "react";
 import { FaUser } from "react-icons/fa"
 import Button from "../miscellaneous/form/Button";
-import Modal from "../modals";
+import Modal from "../modals/Modal";
 import styles from "./contact-list.module.scss";
 
 const ContactCard: FC<{ contact: Contact; refetch:() => void }> = ({ contact, refetch }) => {

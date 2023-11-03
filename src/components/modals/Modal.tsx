@@ -13,7 +13,7 @@ const Modal: FC<
 > = ({ controller, children, title, className }) => {
     if (!controller.isOpen) return null;
     return (
-        <div className={styles.modal}>
+        <div className={styles.modal} data-testid="modal">
             <div
                 className={classNames(
                     styles.paper,

@@ -3,7 +3,7 @@ import Link from "next/link";
 import Button from "../miscellaneous/form/Button";
 import { RxHamburgerMenu } from "react-icons/Rx";
 import styles from "./header.module.scss";
-import SideBar from "../sidebar";
+import SideBar from "../sidebar/SideBar";
 import { useState } from "react";
 
 const Header = () => {

@@ -5,7 +5,7 @@ import { useToast } from "@/hooks/useToast";
 import { getContact } from "@/lib/api/contact";
 import { Contact } from "@/models/contact";
 import { isAxiosError } from "axios";
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 
 interface PageProps {
     params: {
@@ -17,7 +17,7 @@ const EditContact: FC<PageProps> = ({ params }) => {
     const { toast } = useToast();
     const [contact, setContact] = useState<Contact | null>(null);
 
-    const fetchContact = async () => {
+    const fetchContact = useCallback(async () => {
         try {
             const result = await getContact(params.id);
             setContact(result!);
@@ -30,11 +30,11 @@ const EditContact: FC<PageProps> = ({ params }) => {
             })
 
         }
-    }
+    }, [])
 
     useEffect(() => {
         fetchContact()
-    }, []);
+    }, [fetchContact]);
 
     return (
         <div>

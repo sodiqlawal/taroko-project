@@ -1,5 +1,5 @@
 "use client"
-import ContactList from "@/components/contact-list"
+import ContactList from "@/components/contact-list/ContactList"
 import SortButton from "@/components/miscellaneous/sort-button/SortButton";
 import { useState } from "react";
 import styles from "./page.module.scss"

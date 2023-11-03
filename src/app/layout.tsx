@@ -1,5 +1,5 @@
 import Header from "@/components/header/Header"
-import Toast from "@/components/toast"
+import Toast from "@/components/toast/Toast"
 import ToastProvider from "@/context/ToastContext"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"

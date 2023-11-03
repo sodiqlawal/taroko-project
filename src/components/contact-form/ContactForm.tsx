@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { Form, Formik, FormikHelpers } from "formik";
 import styles from "./contact-form.module.scss";
 import { FC, useEffect, useState } from "react";
-import { MyField } from "../miscellaneous/form/Input";
+import { MyField } from "../miscellaneous/form/MyField";
 import * as yup from "yup";
 import Button from "../miscellaneous/form/Button";
 import { HiArrowNarrowLeft } from "react-icons/hi";
