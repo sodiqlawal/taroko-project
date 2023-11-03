@@ -22,8 +22,7 @@ Please go through the following steps to run this project locally:
 -  Install all the dependencies using `npm install` or  `yarn install`. 
 -  Start the project in development mode using `npm run dev` or `yarn run dev` .
 -  Fork the backend repository, and start the server
--  Check `.env.sample` file, for how the env file is being structured and fill in the variables.
-
+-  Create `.env` file and check `.env.sample` file, for how the env file is being structured and fill in the variables.
 
 
 ## `npm run test`
