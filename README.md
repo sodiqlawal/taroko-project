@@ -25,8 +25,10 @@ Please go through the following steps to run this project locally:
 -  Check `.env.sample` file, for how the env file is being structured and fill in the variables.
 
 
-### `npm run test`
-Launches the test runner in the interactive watch mode.\
+
+## `npm run test`
+Launches the test runner in the interactive watch mode.
+
 
 ## Technologies used 🛠️
 
