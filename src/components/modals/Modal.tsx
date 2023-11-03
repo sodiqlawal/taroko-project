@@ -20,15 +20,18 @@ const Modal: FC<
                     className
                 )}
             >
-                <div
-                    className={styles.close}
-                    onClick={controller.close}
-                >
-                    <GrClose className="text-gray-600" />
+
+                <div className={styles.header}>
+                    <h3>{title}</h3>
+                    <div
+                        className={styles.close}
+                        onClick={controller.close}
+                    >
+                        <GrClose className="text-gray-600" size={20} />
+                    </div>
+
                 </div>
 
-                <h2>{title}</h2>
-                
                 <div className={styles.children}>{children}</div>
             </div>
         </div>
