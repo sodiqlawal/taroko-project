@@ -2,7 +2,9 @@ import styles from "./no-data.module.scss";
 
 const NoData = () => {
     return (
-        <h2 className={styles.no_data}>No Data Found</h2>
+        <div className={styles.no_data}>
+            <h2>No Data Found</h2>
+        </div>
     )
 }
 
