@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Button from "../miscellaneous/form/Button";
-import { RxHamburgerMenu } from "react-icons/Rx";
+import { AiOutlineMenu } from "react-icons/ai";
 import styles from "./header.module.scss";
 import SideBar from "../sidebar/SideBar";
 import { useState } from "react";
@@ -20,7 +20,7 @@ const Header = () => {
             </Link>
 
             <div onClick={toggle} className={styles.menu}>
-                <RxHamburgerMenu size={25} />
+                <AiOutlineMenu size={25} />
             </div>
 
             <Link href="/add-contact">
